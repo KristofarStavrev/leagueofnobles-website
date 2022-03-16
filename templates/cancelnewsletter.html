@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Отписване от бюлетин</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/cancelnewsletter.css') }}"/>
+{% endblock %}
+
+{% block body %}
+	<div class="my-container">
+		<p class="text-header">Отписване от бюлетин</p>
+		<p class="main-text">За да се отпишете от бюлетина, моля въведете Вашия E-mail.</p>
+		<form class="cancel-form" action="" method="POST">
+			<input class="cancel-field" type="email" placeholder="Вашият E-mail" name="cancelnewslettersub" required/>
+  			<button class="cancel-btn" type="submit">Отпиши</button>
+		</form>
+	</div>
+	<div class="container-nocolor">
+		<a href="{{ url_for('home') }}"><button class="back-to-home">Към начална страница</button></a>
+	</div>
+{% endblock %}

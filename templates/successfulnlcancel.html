@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Успешно отписване от бюлетин</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/successfulcancel.css') }}"/>
+{% endblock %}
+
+{% block body %}
+	<div class="my-container">
+		<p class="text-header">Успешно отписване от бюлетин</p>
+		<p class="main-text">Вие успешно се отписахте от нашия бюлетин. Ако имате някакви впечатления, оплаквания или коментари, ще сме благодарни да ги чуем. Можете да се свържите с нас <a class="cancel-link" href="{{ url_for('contactpage') }}">тук</a>.</p>
+	</div>
+	<div class="container-nocolor">
+		<a href="{{ url_for('home') }}"><button class="back-to-home">Към начална страница</button></a>
+	</div>
+{% endblock %}

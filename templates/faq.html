@@ -1,0 +1,223 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Често задавани въпроси</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/faq.css') }}"/>
+{% endblock %}
+
+{% block body %}
+<div id="crossline">
+	<span class="text-crossline">Често задавани въпроси</span>
+</div>
+
+<div class="my-container">
+
+	<!-- Section -->
+	<div class="faq-index">
+		<p class="faq-index-text">1.Поръчка</p>
+	</div>
+
+	<!-- Question -->
+	<button class="accordion" style="margin-top: 0px;">
+		<p class="button-text">1.1 Как мога да направя поръчка?</p>
+		<p class="button-symbol"><i class="fas fa-chevron-down"></i></p>
+	</button>
+
+	<!-- Answer -->
+	<div class="panel">
+		<p class="panel-text">Два са начините, по които можете да поръчате от нас:<br><br>- когато изберете продукта, който желаете да поръчате, първата стъпка е да натиснете бутона „Добави в количката“. Бихте могли да продължите с пазаруването или да влезете в Количката, за да продължите със завършването на поръчката, където трябва да попълните необходимата информация за доставка. След като се уверите, че сте попълнили правилно данните, натискате бутона „Завърши поръчката“;<br><br>- можете директно да се обадите на телефон +359 89 447 4175 с вашата заявка.</p>
+	</div>
+
+	<!-- Question -->
+	<button class="accordion">
+		<p class="button-text">1.2 Какво е работното време за поръчки по телефон?</p>
+		<p class="button-symbol"><i class="fas fa-chevron-down"></i></p>
+	</button>
+
+	<!-- Answer -->
+	<div class="panel">
+		<p class="panel-text">За поръчки по телефон работното време е от 08:00 до 18:00 ч. всеки ден.</p>
+	</div>
+
+	<!-- Question -->
+	<button class="accordion">
+		<p class="button-text">1.3 Успях ли успешно да направя поръчка?</p>
+		<p class="button-symbol"><i class="fas fa-chevron-down"></i></p>
+	</button>
+
+	<!-- Answer -->
+	<div class="panel">
+		<p class="panel-text">След като направите поръчка ще получите потвърждаващ E-mail с обобщаваща информация.</p>
+	</div>
+
+	<!-- Question -->
+	<button class="accordion">
+		<p class="button-text">1.4 Как да разбера дали поръчката ми е обработена и изпратена?</p>
+		<p class="button-symbol"><i class="fas fa-chevron-down"></i></p>
+	</button>
+
+	<!-- Answer -->
+	<div class="panel">
+		<p class="panel-text">Когато Вашата поръчката бъде обработена и изпратена ще получите обратен E-mail с допълнителна информация.</p>
+	</div>
+
+	<!-- Question -->
+	<button class="accordion">
+		<p class="button-text">1.5 Трябва ли да потвърдя поръчката?</p>
+		<p class="button-symbol"><i class="fas fa-chevron-down"></i></p>
+	</button>
+
+	<!-- Answer -->
+	<div class="panel">
+		<p class="panel-text">Поръчката няма нужда от потвърждение. При промяна на някои от посочените от Вас данни свързани с поръчката и доставката, се свържете с нас на телефон: +359 89 447 4175 или на Е-mail: leagueofnobles.store@gmail.com.</p>
+	</div>
+
+	<!-- Question -->
+	<button class="accordion">
+		<p class="button-text">1.6 Как да направя промяна на данните относно поръчката?</p>
+		<p class="button-symbol"><i class="fas fa-chevron-down"></i></p>
+	</button>
+
+	<!-- Answer -->
+	<div class="panel">
+		<p class="panel-text">В случай, че е необходима промяна на някои от посочените от Вас данни свързани с поръчката и доставката, се свържете с нас на телефон: +359 89 447 4175 или на Е-mail: leagueofnobles.store@gmail.com. При неточни или сгрешени данни, относно адреса на доставката, и ако стоката вече е изпратена на грешния адрес, разходите за куриерската услуга за пренасочване на пратката, са за сметка на потребителя.</p>
+	</div>
+
+	<!-- Question -->
+	<button class="accordion">
+		<p class="button-text">1.7 Мога ли да се откажа от вече направена поръчка?</p>
+		<p class="button-symbol"><i class="fas fa-chevron-down"></i></p>
+	</button>
+
+	<!-- Answer -->
+	<div class="panel">
+		<p class="panel-text">Можете да откажете поръчка единствено ако тя още не е била изпратена към Вашия адрес. В противен случай ще трябва да заплатите доставката за връщането на стоките. При желание за отказ моля се свържете с нас на телефон: +359 89 447 4175 или на Е-mail: leagueofnobles.store@gmail.com.</p>
+	</div>
+
+	<!-- Question -->
+	<button class="accordion">
+		<p class="button-text">1.8 Поръчах грешния продукт, какво да направя?</p>
+		<p class="button-symbol"><i class="fas fa-chevron-down"></i></p>
+	</button>
+
+	<!-- Answer -->
+	<div class="panel">
+		<p class="panel-text">При поръчка на грешен продукт, моля свържете се с нас на телефон: +359 89 447 4175 или на Е-mail: leagueofnobles.store@gmail.com. Ако Вашата поръчка все още не е била изпратена, тя ще бъде коригирана. В противен случай ще трябва да заплатите доставката за връщането на продукта и да направите нова поръчка.</p>
+	</div>
+
+	<!-- Question -->
+	<button class="accordion">
+		<p class="button-text">1.9 Какво да правя при дефектна или повредена стока?</p>
+		<p class="button-symbol"><i class="fas fa-chevron-down"></i></p>
+	</button>
+
+	<!-- Answer -->
+	<div class="panel">
+		<p class="panel-text">Дефектна или повредена стока може да се връща единствено по време на прегледа при доставчика. Доставката за връщане на стоката се поема от нас. Ще бъдете компенсирани с право на една поръчка с безплатна доставка.</p>
+	</div>
+
+	<!-- Section -->
+	<div class="faq-index">
+		<p class="faq-index-text">2. Доставка, начин на плащане, право на преглед</p>
+	</div>
+
+	<!-- Question -->
+	<button class="accordion" style="margin-top: 0px;">
+		<p class="button-text">2.1 По какъв начин мога да получа своята поръчка?</p>
+		<p class="button-symbol"><i class="fas fa-chevron-down"></i></p>
+	</button>
+
+	<!-- Answer -->
+	<div class="panel">
+		<p class="panel-text">Предлагаме два начина на доставка:<br><br>- доставяне до офис на Спиди или Еконт;<br><br>- доставяне до адрес чрез Спиди или Еконт.</p>
+	</div>
+
+	<!-- Question -->
+	<button class="accordion">
+		<p class="button-text">2.2 Колко време ще отнеме доставянето на поръчката?</p>
+		<p class="button-symbol"><i class="fas fa-chevron-down"></i></p>
+	</button>
+
+	<!-- Answer -->
+	<div class="panel">
+		<p class="panel-text">Времето за доставка зависи от избраната фирма доставчик. Стандартното време за доставка, след като обработим и изпратим Вашата поръчка, и получите обратен E-mail, е от 1 до 5 дена. В случай на забавяне, наш служител ще се свърже с вас.</p>
+	</div>
+
+	<!-- Question -->
+	<button class="accordion">
+		<p class="button-text">2.3 Колко ще ми струва доставката?</p>
+		<p class="button-symbol"><i class="fas fa-chevron-down"></i></p>
+	</button>
+
+	<!-- Answer -->
+	<div class="panel">
+		<p class="panel-text">Цената на доставка до офис или до адрес зависи от фирмата доставчик. След като обработим и изпратим Вашата поръчка, ще получите E-mail, в който ще има повече информация относно цената на доставката. Ориентировъчна цена за доставка е между 4 и 7 лева.</p>
+	</div>
+
+	<!-- Question -->
+	<button class="accordion">
+		<p class="button-text">2.4 По какъв начин се заплаща стоката?</p>
+		<p class="button-symbol"><i class="fas fa-chevron-down"></i></p>
+	</button>
+
+	<!-- Answer -->
+	<div class="panel">
+		<p class="panel-text">Стоката може да бъде заплатена единствено чрез наложен платеж. При доставка – плащате сумата в брой на куриера, който ви доставя поръчката.</p>
+	</div>
+
+	<!-- Question -->
+	<button class="accordion">
+		<p class="button-text">2.5 Имам ли право на преглед?</p>
+		<p class="button-symbol"><i class="fas fa-chevron-down"></i></p>
+	</button>
+
+	<!-- Answer -->
+	<div class="panel">
+		<p class="panel-text">Всяка изпратена от нас пратка идва с право на преглед.</p>
+	</div>
+
+	<!-- Question -->
+	<button class="accordion">
+		<p class="button-text">2.6 Колко време имам на разположение да взема пратката си от офис на куриерската фирма?</p>
+		<p class="button-symbol"><i class="fas fa-chevron-down"></i></p>
+	</button>
+
+	<!-- Answer -->
+	<div class="panel">
+		<p class="panel-text">За пратка доставена с куриерска фирма Еконт или Спиди, разполагате със 7 работни дни, през които трябва да я вземете.</p>
+	</div>
+
+	<!-- Section -->
+	<div class="faq-index">
+		<p class="faq-index-text">3. Общи въпроси</p>
+	</div>
+
+	<!-- Question -->
+	<button class="accordion" style="margin-top: 0px;">
+		<p class="button-text">3.1 Как да разбера дали даден продукт е в наличност?</p>
+		<p class="button-symbol"><i class="fas fa-chevron-down"></i></p>
+	</button>
+
+	<!-- Answer -->
+	<div class="panel">
+		<p class="panel-text">Когато даден продукт не е в наличност върху него ще бъде изписано в червена лента „Разпродадено“ и бутонът „Добави в количката“ е сив и не е активен.</p>
+	</div>
+
+	<!-- Question -->
+	<button class="accordion">
+		<p class="button-text">3.2 Как да се отпиша от бюлетина?</p>
+		<p class="button-symbol"><i class="fas fa-chevron-down"></i></p>
+	</button>
+
+	<!-- Answer -->
+	<div class="panel">
+		<p class="panel-text">За да се отпишете от нашия бюлетин, кликнете <a class="cancelnewsletter-link" href="{{ url_for('cancelnewsletter') }}">тук</a> и въведете Вашия E-mail адрес.</p>
+	</div>
+
+	<div class="standart">
+		<a href="{{ url_for('contactpage') }}"><button class="contact-us">Свържете се с нас</button></a>
+	</div>
+</div>
+
+<script type="text/javascript" src="{{ url_for('static', filename='javascript/accordionfaq.js') }}"></script>
+{% endblock %}

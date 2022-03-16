@@ -1,0 +1,282 @@
+{% extends 'base.html' %}
+
+{% block head %}
+	<title>Завършване на поръчка</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/checkout.css') }}"/>
+{% endblock %}
+
+{% block body %}
+	<div id="crossline">
+		<span class="text-crossline">Завършване на поръчка</span>
+	</div>
+
+	<div class="my-container">
+		<form id="checkout-form" class="user-inputs" method="POST">
+
+			<!-- For protection against CSRF attacks -->
+			{{ form.csrf_token() }}
+
+			<div class="personal-data">
+				<div class="input-header">
+					<div class="numeration"><span class="numeration-span">1</span></div><span class="input-header-text">Лични данни</span>
+				</div>
+				<div class="my-row">
+					{{ form.fname.label(class="my-label") }}
+
+					{% if form.fname.errors %}
+
+					<div class="div-input">
+						{{ form.fname(class="my-input-error") }}
+						<div class="error-msg">
+							{% for error in form.fname.errors %}
+							<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					</div>
+
+					{% else %}
+
+					<div class="div-input">
+						{{ form.fname(class="my-input") }}
+					</div>
+					{% endif %}
+				</div>
+				<div class="my-row">
+					{{ form.lname.label(class="my-label") }}
+
+					{% if form.lname.errors %}
+
+					<div class="div-input">
+						{{ form.lname(class="my-input-error") }}
+						<div class="error-msg">
+							{% for error in form.lname.errors %}
+							<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					</div>
+
+					{% else %}
+
+					<div class="div-input">
+						{{ form.lname(class="my-input") }}
+					</div>
+					{% endif %}
+				</div>
+				<div class="my-row">
+					{{ form.checkoutemail.label(class="my-label") }}
+
+					{% if form.checkoutemail.errors %}
+
+					<div class="div-input">
+						{{ form.checkoutemail(class="my-input-error") }}
+						<div class="error-msg">
+							{% for error in form.checkoutemail.errors %}
+							<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					</div>
+
+					{% else %}
+
+					<div class="div-input">
+						{{ form.checkoutemail(class="my-input") }}
+					</div>
+					{% endif %}
+				</div>
+				<div class="my-row">
+					{{ form.phone.label(class="my-label") }}
+
+					{% if form.phone.errors %}
+
+					<div class="div-input">
+						{{ form.phone(class="my-input-error") }}
+						<div class="error-msg">
+							{% for error in form.phone.errors %}
+							<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					</div>
+
+					{% else %}
+
+					<div class="div-input">
+						{{ form.phone(class="my-input") }}
+					</div>
+					{% endif %}
+				</div>
+
+			</div>
+			<div class="shipping-method">
+				<div class="input-header">
+					<div class="numeration"><span class="numeration-span">2</span></div><span class="input-header-text">Метод на доставка</span>
+				</div>
+				<div class="my-row">
+					{{ form.shippingmethod.label(class="my-label-checkbox") }}
+
+					{% if form.shippingmethod.errors %}
+
+					<div class="div-input" style="border: 1.5px solid red;">
+					{% for subfield in form.shippingmethod %}
+
+						<div class="my-input-checkbox">{{ subfield }} {{ subfield.label }}</div>
+
+					{% endfor %}
+
+					</div>
+
+					{% else %}
+
+					<div class="div-input">
+					{% for subfield in form.shippingmethod %}
+
+						<div class="my-input-checkbox">{{ subfield }} {{ subfield.label }}</div>
+
+					{% endfor %}
+
+					</div>
+					{% endif %}
+				</div>
+			</div>
+			<div class="shippingadress">
+				<div class="input-header">
+					<div class="numeration"><span class="numeration-span">3</span></div><span class="input-header-text">Адрес на доставка</span>
+				</div>
+				<div class="my-row">
+					{{ form.province.label(class="my-label") }}
+
+					{% if form.province.errors %}
+
+					<div class="div-input">
+						{{ form.province(class="my-input-error") }}
+						<div class="error-msg">
+							{% for error in form.province.errors %}
+							<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					</div>
+
+					{% else %}
+
+					<div class="div-input">
+						{{ form.province(class="my-input") }}
+					</div>
+					{% endif %}
+				</div>
+				<div class="my-row">
+					{{ form.city.label(class="my-label") }}
+
+					{% if form.city.errors %}
+
+					<div class="div-input">
+						{{ form.city(class="my-input-error") }}
+						<div class="error-msg">
+							{% for error in form.city.errors %}
+							<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					</div>
+
+					{% else %}
+
+					<div class="div-input">
+						{{ form.city(class="my-input") }}
+					</div>
+					{% endif %}
+				</div>
+				<div class="my-row">
+					{{ form.adress.label(class="my-label", id="forjs") }}
+
+					{% if form.adress.errors %}
+
+					<div class="div-input">
+						{{ form.adress(class="my-input-error") }}
+						<div class="error-msg">
+							{% for error in form.adress.errors %}
+							<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					</div>
+
+					{% else %}
+
+					<div class="div-input">
+						{{ form.adress(class="my-input") }}
+					</div>
+					{% endif %}
+				</div>
+			</div>
+			<div class="comment">
+				<div class="input-header">
+					<div class="numeration"><span class="numeration-span">4</span></div><span class="input-header-text">Допълнителни инструкции</span>
+				</div>
+				<div class="my-row">
+
+					{% if form.checkoutmessage.errors %}
+
+					<div class="div-input-center">
+						{{ form.checkoutmessage(class="my-input-error-center") }}
+						<div class="error-msg">
+							{% for error in form.checkoutmessage.errors %}
+							<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					</div>
+
+					{% else %}
+
+					<div class="div-input-center">
+						{{ form.checkoutmessage(class="my-input-center") }}
+					</div>
+					{% endif %}
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="container-nocolor">
+		<div class="conclusion-grid">
+			<div class="conclusion-elements-holder">
+				<p class="conclusion-elements-header">Важна информация</p>
+				<hr class="product-seperator"/>
+				<p class="conclusion-info-elements">- Полетата маркирани със * са задължителни.</p>
+				<p class="conclusion-info-elements">- Плащането се извършва с наложен платеж.</p>
+				<p class="conclusion-info-elements">- Пратката има право на преглед.</p>
+				<p class="conclusion-info-elements">- Доставката <strong>не е</strong> включена в цената.</p>
+			</div>
+			<div class="conclusion-elements-holder">
+				<div class="gird-for-conclusion-price">
+					<p class="conclusion-price-elements price-element1">Междинна сума</p>
+					<p class="conclusion-price-elements price-element2"><span class="price-number-final">{{ '%0.2f' | format(currentamount | float) }} </span><span>лв.</span></p>
+					<p class="conclusion-price-elements price-element3">Отстъпка</p>
+					<p class="conclusion-price-elements price-element4"><span class="price-number-final">{{ '%0.2f' | format(discount | float) }} </span><span>лв.</span></p>
+					<hr class="product-seperator price-element5"/>
+					<p class="price-element6">Крайна сума</p>
+					<p class="price-element7"><span class="price-number-final">{{ '%0.2f' | format(finalamount | float) }} </span><span>лв.</span></p>
+				</div>
+			</div>
+		</div>
+		<div class="agreement-check">
+			{% if form.agreement.errors %}
+				{{ form.agreement(form='checkout-form', class='agreement-error') }}
+				{{ form.agreement.label(form='checkout-form', class='checkbox-label') }}
+					<div class="error-msg">
+						{% for error in form.agreement.errors %}
+						<span>{{ error }}</span>
+						{% endfor %}
+					</div>
+			{% else %}
+				{{ form.agreement(form='checkout-form', class='agreement-nonerror') }}
+				{{ form.agreement.label(form='checkout-form', class='checkbox-label') }}
+			{% endif %}
+
+		</div>
+
+		<div class="button-grid">
+			<a href="{{ url_for('shoppingcart') }}"><button class="bottom-buttons button-left"><span class="animation-span-left fas fa-angle-left"><span style="font-family:Roboto,sans-serif;font-weight:normal;"> Обратно към количката</span></span></button></a>
+			<button type="submit" form="checkout-form" id="button-gone" class="bottom-buttons button-right"><span class="animation-span-right">Завърши поръчката </span></button>
+			<button type="submit" form="checkout-form" class="button-scaling"><span class="button-text">Завърши поръчката </span></button>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="{{ url_for('static', filename='javascript/checkoutadress.js') }}"></script>
+
+{% endblock %}

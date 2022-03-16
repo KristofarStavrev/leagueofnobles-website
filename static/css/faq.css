@@ -1,0 +1,231 @@
+button:focus {
+	outline: none;
+}
+
+input[type="submit"]:focus {
+	outline: none;
+}
+
+#crossline {
+	font-size: 1.9rem;
+	width: 90%;
+	max-width: 1100px;
+	text-align: center;
+	border-bottom: 1px solid #000;
+	line-height: 0.1em;
+	margin: 20px auto 30px auto;
+}
+
+.text-crossline {
+	background: #fff;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.standart {
+	text-align: center;
+	margin: auto;
+	margin-top: 15px;
+}
+
+.contact-us {
+	border: 2px solid;
+	background: #968C9E;
+	border-color: #968C9E;
+	color: white;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  	padding: 7px 50px;
+  	font-size: 1.5rem;
+  	cursor: pointer;
+	border-radius: 5px;
+	-webkit-transition: 0.3s;
+	transition: 0.3s;
+	margin-top: 15px;
+}
+
+.contact-us:hover {
+  	background: #7B7382;
+	border-color: #7B7382;
+	text-decoration: none;
+	color: white;
+}
+
+.my-container {
+	font-size: 1.2rem;
+	width: 90%;
+	max-width: 1100px;
+  	border-radius: 5px;
+  	background-color: #f2f2f2;
+  	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  	padding: 20px;
+	margin: auto;
+	margin-top: 50px;
+}
+
+.faq-index {
+	border-bottom: 1px solid #555;
+	margin-bottom: 20px;
+}
+
+.faq-index-text {
+	color: #968C9E;
+	margin-bottom: 0px;
+	font-size: 1.5rem;
+	font-weight: bold;
+	text-align: left;
+}
+
+.accordion {
+	position: relative;
+	background-color: #f2f2f2;
+	color: #555;
+	cursor: pointer;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	padding-left: 3px;
+	padding-right: 3px;
+	width: 100%;
+	text-align: left;
+	border: none;
+	outline: none;
+	transition: 0.4s;
+	margin-top: 5px;
+}
+
+.button-text {
+	width: 90%;
+	display: inline-block;
+	margin: 0;
+}
+
+.button-symbol {
+	font-size: 18px;
+	position: absolute;
+	right: 5px;
+	top: 50%;
+	width: 5%;
+	margin: 0;
+	text-align: right;
+	display: inline-block;
+	vertical-align: center;
+	transform: translate(0%, -50%);
+}
+
+.active, .accordion:hover {
+	background-color: rgba(150, 140, 158, 0.3);
+}
+
+.accordion:focus {
+	outline: none;
+}
+
+.panel {
+	padding: 0 15px;
+	max-height: 0px;
+	overflow: auto;
+	transition: max-height 0.2s ease-out;
+	border-left: solid #968C9E;
+	border-radius: 1px;
+	margin-bottom: 7px;
+	margin-top: 5px;
+}
+
+.panel-text {
+	font-size: 1.2rem;
+	margin: 0;
+	margin-top: 5px;
+}
+
+.cancelnewsletter-link {
+	text-decoration: none;
+	color: #968C9E;
+}
+
+.cancelnewsletter-link:focus {
+	text-decoration: none;
+	outline: none;
+}
+
+.cancelnewsletter-link:hover {
+	text-decoration: none;
+	color: #7B7382;
+}
+
+@media screen and (max-width: 850px) {
+	#crossline {
+		font-size: 1.8rem;
+	}
+
+	.contact-us {
+		font-size: 1.4rem;
+	}
+
+	.faq-index-text {
+		font-size: 1.4rem;
+	}
+
+	.button-text {
+		font-size: 1.2rem;
+	}
+
+	.panel-text {
+		font-size: 1.1rem;
+	}
+}
+
+@media screen and (max-width: 650px) {
+	#crossline {
+		font-size: 1.7rem;
+	}
+}
+
+@media screen and (max-width: 550px) {
+	#crossline {
+		font-size: 1.6rem;
+	}
+}
+
+@media screen and (max-width: 450px) {
+	#crossline {
+		font-size: 1.4rem;
+	}
+
+	.contact-us {
+		font-size: 1.3rem;
+	}
+
+	.faq-index-text {
+		font-size: 1.3rem;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	#crossline {
+		font-size: 1.3rem;
+	}
+}
+
+@media screen and (max-width: 360px) {
+	.contact-us {
+		font-size: 1.2rem;
+		padding: 7px 15px;
+	}
+
+	.faq-index-text {
+		font-size: 1.2rem;
+	}
+
+	.button-text {
+		font-size: 1.1rem;
+	}
+
+	.panel-text {
+		font-size: 16px;
+	}
+}
+
+@media screen and (max-width: 340px) {
+	#crossline {
+		font-size: 1.2rem;
+	}
+}

@@ -1,0 +1,162 @@
+button:focus {
+	outline: none;
+}
+
+input[type="submit"]:focus {
+	outline: none;
+}
+
+.my-container {
+	width: 90%;
+	max-width: 1100px;
+  	border-radius: 5px;
+  	background-color: #f2f2f2;
+  	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  	padding: 20px;
+	margin: auto;
+	margin-top: 3rem;
+}
+
+.text-header {
+	text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.main-text {
+	font-size: 18px;
+    color: #4d4d4d;
+    text-align: center;
+}
+
+.container-nocolor {
+	font-size: 1.2rem;
+	width: 90%;
+	max-width: 1100px;
+  	padding: 20px;
+	margin: auto;
+	margin-top: 3rem;
+    text-align: center;
+}
+
+.cancel-form {
+	display: grid;
+	grid-template-columns: 300px 150px;
+	grid-template-rows: auto;
+	width: 453px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 35px;
+}
+
+.cancel-field {
+	/* box-sizing: content-box !important; */
+  	padding: 2px;
+  	border: 1px solid #ccc;
+  	border-radius: 4px;
+  	height: 40px;
+  	width: 300px;
+}
+
+.cancel-field:focus {
+	border: 2px solid #0A84FF;
+}
+
+.cancel-btn {
+	/* box-sizing: content-box !important; */
+	background-color: #968C9E;
+	border: none;
+	border-radius: 4px;
+	color: #FFFFFF;
+	font-size: 1.3rem;
+	height: 40px;
+	width: 150px;
+	padding: 3px;
+	margin-left: 3px;
+	cursor: pointer;
+}
+
+.cancel-btn:hover {
+	background-color: #7B7382;
+}
+
+.back-to-home {
+	height: 70px;
+	width: 400px;
+	border-radius: 4px;
+	background-color: #968C9E;
+	border: none;
+	color: #FFFFFF;
+	padding: 10px;
+	font-size: 1.5rem;
+	transition: all 0.5s;
+	cursor: pointer;
+}
+
+.back-to-home:hover {
+	background-color: #7B7382;
+}
+
+@media screen and (max-width: 800px) {
+	.back-to-home {
+		width: 350px;
+  		font-size: 1.3rem;
+	}
+}
+
+@media screen and (max-width: 620px) {
+	.cancel-form {
+		grid-template-rows: auto auto;
+		grid-template-columns: auto;
+		grid-row-gap: 5px;
+		width: auto;
+	}
+
+	.cancel-btn {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.cancel-field {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.back-to-home {
+		width: 300px;
+  		font-size: 1.2rem;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.back-to-home {
+		width: 250px;
+  		font-size: 1.1rem;
+	}
+
+	.my-container {
+		padding: 10px;
+		padding-bottom: 20px;
+	}
+}
+
+@media screen and (max-width: 360px) {
+	.main-text {
+		margin-bottom: 10px;
+		margin-top: 10px;
+	}
+
+	.cancel-field {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	.back-to-home {
+		width: 230px;
+	}
+}

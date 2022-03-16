@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+
+{% block head %}
+	<title>Вашата количка</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/shoppingcart.css') }}"/>
+{% endblock %}
+
+{% block body %}
+
+	<div id="crossline">
+		<span class="text-crossline">Вашата количка</span>
+	</div>
+
+	{% with cart = get_flashed_messages(category_filter=["cart_error"]) %}
+		{% if cart %}
+			{% for cart_msg in cart %}
+				<div class="container-error">
+					<p class="error-message">{{ cart_msg }}</p>
+				</div>
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+
+	<div class="my-container">
+		<div class="cart-holder">
+			<!-- Titles -->
+			<p class="info-bar-product">Продукт</p>
+			<p class="info-bar">Цена</p>
+			<p class="info-bar">Количество</p>
+			<p class="info-bar">Сума</p>
+			<p id="delete-when-scale"></p>
+			<hr id="scale-move-up" class="product-seperator"/>
+
+			<!-- Item -->
+			{% set total_price = namespace(total_price = 0) %}
+			{% set total_quantity = namespace(total_quantity = 0) %}
+
+			{% for element in product_data %}
+
+				{% set current_image = namespace(current_image = '') %}
+				{% set current_price = namespace(current_price = '') %}
+
+				{% for object in products %}
+					{% if object.product_name == element %}
+						{% set current_image.current_image = object.product_image %}
+						{% set current_price.current_price = object.product_price %}
+					{% endif %}
+				{% endfor %}
+
+				<img class="small-image" src="{{ url_for('static', filename='images/Keychains/' + current_image.current_image) }}"/>
+				<p class="info-bar-product-element">{{ element }}</p>
+				<p id="price-quantity-scale" class="price-number">{{ current_price.current_price | int }} <span class="item-element">лв./бр</span></p>
+				<div id="quantity-form-scale" class="item-element scale-move-left">
+					<form action="/shoppingcart" method="POST" class="neutral-form-quantity">
+						<input type="hidden" name="product_name" value="{{ element }}">
+						<input type="submit" name="decrease" value="-" class="value-button decrease"/>
+					</form>
+	  				<input type="number" class="qnumber" value="{{ product_data[element] }}" min="1" readonly/>
+	  				<form action="/shoppingcart" method="POST" class="neutral-form-quantity">
+	  					<input type="hidden" name="product_name" value="{{ element }}">
+	  					<input type="submit" name="increase" value="+" class="value-button increase"/>
+	  				</form>
+				</div>
+				<p class="price-number">{{ current_price.current_price | int * product_data[element] | int }} <span class="item-element">лв.</span></p>
+				<form action="/shoppingcart" method="POST" class="neutral-form">
+					<input type="hidden" name="product_name" value="{{ element }}">
+					<button type="submit" name="delete-item" class="x-close"><i class="fas fa-times"></i></button>
+				</form>
+				<hr id="uniqe-line" class="product-seperator"/>
+
+				{% set total_price.total_price = total_price.total_price | int + current_price.current_price | int * product_data[element] | int %}
+				{% set total_quantity.total_quantity = total_quantity.total_quantity | int + product_data[element] | int %}
+			{% endfor %}
+			<!-- End of item -->
+
+		</div>
+	</div>
+
+	<div class="container-nocolor">
+		<div class="summary-grid">
+			<div class="summary-elements-holder">
+				<p class="summary-elements-header">Отстъпки*</p>
+				<hr class="product-seperator"/>
+				<div class="gird-for-subelements-discounts">
+					<p class="summary-elements discounts-element1">При поръчка на 2 бройки:</p>
+					<p class="summary-elements discounts-element2">10% отстъпка</p>
+					{% if total_quantity.total_quantity == 2 %}
+						<i class="checkboxes-green discounts-element3 far fa-check-circle"></i>
+					{% else %}
+						<i class="checkboxes-red discounts-element3 far fa-times-circle"></i>
+					{% endif %}
+					<hr class="product-seperator-scaling"/>
+					<p class="summary-elements discounts-element4">При поръчка на 3 или повече бройки:</p>
+					<p class="summary-elements discounts-element5">15% отстъпка</p>
+					{% if total_quantity.total_quantity >= 3 %}
+						<i class="checkboxes-green discounts-element6 far fa-check-circle"></i>
+					{% else %}
+						<i class="checkboxes-red discounts-element6 far fa-times-circle"></i>
+					{% endif %}
+				</div>
+			</div>
+			<div class="summary-elements-holder">
+				<div class="gird-for-subelements-price">
+					<p class="price-elements price-element1">Междинна сума</p>
+					<p class="price-elements price-element2"><span class="price-number-final">{{ '%0.2f' | format(total_price.total_price | float) }} </span><span>лв.</span></p>
+					<p class="price-elements price-element3">Отстъпка</p>
+					{% set discount = 0 %}
+					{% if total_quantity.total_quantity == 2 %}
+						{% set discount = 0.1 * total_price.total_price %}
+					{% elif total_quantity.total_quantity >= 3 %}
+						{% set discount = 0.15 * total_price.total_price %}
+					{% endif %}
+					<p class="price-elements price-element4"><span class="price-number-final">{{ '%0.2f' | format(discount | float) }} </span><span>лв.</span></p>
+					<hr class="product-seperator price-element5"/>
+					<p class="price-element6">Крайна сума**</p>
+					<p class="price-element7"><span class="price-number-final">{{ '%0.2f' | format((total_price.total_price - discount) | float) }} </span><span>лв.</span></p>
+				</div>
+			</div>
+		</div>
+		<div class="small-notification">
+			<p>*Отстъпките не се комбинират.</p>
+			<p class="notification-element">**Доставката не е включена в цената.</p>
+		</div>
+		<div class="button-grid">
+			<a href="{{ url_for('home') + '#sideline' }}"><button class="bottom-buttons button-left"><span class="animation-span-left fas fa-angle-left"><span style="font-family:Roboto,sans-serif;font-weight:normal;"> Обратно към магазина</span></span></button></a>
+			<form action="" method="POST">
+				<input type="hidden" name="current_amount" value="{{ '%0.2f' | format(total_price.total_price | float) }}">
+				<input type="hidden" name="discount" value="{{ '%0.2f' | format(discount | float) }}">
+				<input type="hidden" name="final_amount" value="{{ '%0.2f' | format((total_price.total_price - discount) | float) }}">
+				<button class="bottom-buttons button-right"><span style="font-family:Roboto,sans-serif;font-weight:normal;">Финализация на поръчка </span><span class="animation-span-right fas fa-angle-right"></span></button>
+			</form>
+		</div>
+	</div>
+
+	<!--<script type="text/javascript" src="{{ url_for('static', filename='javascript/changevalue.js') }}"></script>-->
+
+
+{% endblock %}

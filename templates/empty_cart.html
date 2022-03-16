@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block head %}
+	<title>Празна количка</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/emptyshoppingcart.css') }}"/>
+{% endblock %}
+
+
+{% block body %}
+	<div class="my-container">
+		<p class="main-message">Вашата количка е празна!</p>
+	</div>
+	<div class="container-nocolor">
+		<div class="center-button">
+			<a href="{{ url_for('home') + '#sideline' }}"><button class="bottom-buttons button-left"><span class="animation-span-left fas fa-angle-left"><span style="font-family:Roboto,sans-serif;font-weight:normal;"> Обратно към магазина</span></span></button></a>
+		</div>
+	</div>
+{% endblock %}

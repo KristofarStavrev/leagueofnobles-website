@@ -1,0 +1,226 @@
+{% extends 'base.html' %}
+
+{% block head %}
+	<title>League of Nobles</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/styling.css') }}"/>
+{% endblock %}
+
+
+{% block body %}
+
+	<!-- Carousel -->
+	<div class="spacing" id="carousel-gone">
+		<div id="slides" class="carousel slide" data-ride="carousel">
+
+			<!-- Indicators -->
+			<ul class="carousel-indicators">
+				<li data-target="#slides" data-slide-to="0" class="active"></li>
+				<li data-target="#slides" data-slide-to="1"></li>
+				<li data-target="#slides" data-slide-to="2"></li>
+			</ul>
+
+			<!-- The slideshow -->
+			<div class="carousel-inner">
+
+				<!-- Item 1 -->
+				<div class="carousel-item active">
+					<img src="{{ url_for('static', filename='images/slide2.jpg') }}" alt="Lux, Ahri, Kai'Sa"/>
+					<div class="carousel-caption">
+						<p class="carousel-item-text">League of Nobles - Магазинът за League of Legends аксесоари!</p>
+					</div>
+				</div>
+
+				<!-- Item 2 -->
+				<div class="carousel-item">
+					<img src="{{ url_for('static', filename='images/slide1.jpg') }}" alt="Riven, Lux and Janna, Irelia"/>
+					<div class="carousel-caption carousel-button-caption">
+						<p class="carousel-item-text">Вземете ключодържател на любимия Ви герой!</p>
+						<a href="#sideline"><button class="myBtn">КУПЕТЕ СЕГА</button></a>
+						<br/>
+					</div>
+				</div>
+
+				<!-- Item 3 -->
+				<div class="carousel-item">
+					<img src="{{ url_for('static', filename='images/homemain.jpg') }}" alt="Camile and Jhin"/>
+					<div class="carousel-caption">
+						<p class="carousel-item-text">Очаквайте скоро: Нови и ексклузивни League of Legends аксесоари!</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Left and right controls -->
+			<a class="carousel-control-prev" href="#slides" data-slide="prev">
+				<span class="carousel-control-prev-icon"></span>
+			</a>
+			<a class="carousel-control-next" href="#slides" data-slide="next">
+				<span class="carousel-control-next-icon"></span>
+			</a>
+		</div>
+	</div>
+	<div id="show-when-small">
+		<div id="slides-small" class="carousel slide" data-ride="carousel">
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img src="{{ url_for('static', filename='images/riven.jpg') }}" alt="Riven"/>
+					<div class="carousel-caption carousel-button-caption">
+						<p class="carousel-item-text-small">Вземете ключодържател на любимия ви герой!</p>
+						<a href="#sideline"><button class="myBtn-small">КУПЕТЕ СЕГА</button></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Jumbotron  -->
+	<div class="jumbotron-spacing">
+		<div class="crossline">
+  			<span class="jumbotron-header">За продукта</span>
+		</div>
+  		<div class="jumbotron-grid-container">
+	    	<div id="jumbotron-item1" class="jumbotron-image-div">
+	    		<img id="img1" src="{{ url_for('static', filename='images/material.png') }}" alt="material">
+	    	</div>
+
+	    	<div id="jumbotron-item2" class="jumbotron-paragraph-div">
+	    		<p class="jumbotron-paragraph">Акрилен материал</p>
+	    	</div>
+
+	    	<div id="jumbotron-item3" class="jumbotron-image-div">
+	    		<img id="img2" src="{{ url_for('static', filename='images/size.png') }}" alt="size">
+	    	</div>
+
+	    	<div id="jumbotron-item4" class="jumbotron-paragraph-div">
+	    		<p class="jumbotron-paragraph">~6см. ширина х 5см. дължина</p>
+	   		</div>
+
+	   		<div id="jumbotron-item5" class="jumbotron-image-div">
+	   			<img id="img3" src="{{ url_for('static', filename='images/gift.png') }}" alt="gift">
+	   		</div>
+
+	   		<div id="jumbotron-item6" class="jumbotron-paragraph-div">
+	   			<p class="jumbotron-paragraph">Перфектният подарък!</p>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Separator -->
+
+	<div id="sideline">
+  		<span class="text-sideline">Нашите ключодържатели</span>
+	</div>
+
+	{% with home = get_flashed_messages(category_filter=["home_error"]) %}
+		{% if home %}
+			{% for home_msg in home %}
+				<div class="spacing-error">
+					<p class="error-msg">{{ home_msg }}</p>
+				</div>
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+
+	<!-- Left and right controls for items carousel -->
+
+	<div class="spacing">
+		<div class="wrapper">
+    	<div style="text-align: left;" class="item1">
+				<a onclick="plusSlides(-1); prevSlide()" class="nav-arrow" style="border-radius: 5px 0px 0px 5px;"><i class="fas fa-chevron-left"></i></a>
+			</div>
+			<div style="text-align: center;" class="item2">
+				<a onclick="toPage(this)" class="catalog-pages" id="page1" style="border-radius: 3px 3px 3px 3px;">1</a>
+				<a onclick="toPage(this)" class="catalog-pages" id="page2" style="border-radius: 3px 3px 3px 3px;">2</a>
+				<a onclick="toPage(this)" class="catalog-pages" id="page3" style="border-radius: 3px 3px 3px 3px;">3</a>
+			</div>
+      <div style="text-align: right;" class="item3">
+				<a onclick="plusSlides(1); nextSlide()" class="nav-arrow"><i class="fas fa-chevron-right"></i></a>
+			</div>
+		</div>
+	</div>
+
+	{% set break_item = namespace(break_item = 0) %}
+	{% set current_item = namespace(current_item = 0) %}
+	{% set page_len = (((products | length) / 6) | round(0, 'ceil')) | int %}
+
+	{% for i in range(1, page_len + 1) %}
+
+		<!-- Item Grid -->
+		<div class="spacing">
+			<div id="item-grid-{{ i }}" class="card-holder">
+
+				{% for item in range(products | length) %}
+				
+					{% if current_item.current_item == (products | length) %}
+						{% break %}
+					{% endif %}
+
+					<!-- Items -->
+
+					{% if products[current_item.current_item].product_quantity == 0 %}
+
+						<!-- <img class="myImg" src="{{ url_for('static', filename='images/Keychains/' + products[current_item.current_item].product_image) }}" alt="{{ products[current_item.current_item].product_name }}"> -->
+
+						<div class="my-card">
+							<div class="img-banner-div">
+								<img class="myImg" src="{{ url_for('static', filename='images/Keychains/' + products[current_item.current_item].product_image) }}" alt="{{ products[current_item.current_item].product_name }}">
+								<div class="sold-out-banner">Разпродадено</div>
+							</div>
+							<div class="name-price">
+			  					<p class="card-name">{{ products[current_item.current_item].product_name }}</p>
+			  					<p class="card-price">{{ products[current_item.current_item].product_price | int }}<span class="lv">лв.</span></p>
+			  				</div>
+		  					<form action="/home" method="POST">
+	  							<input type="hidden" name="product_name" id="" value="{{ products[current_item.current_item].product_name }}">
+	  							<input class="buy-button" type="submit" value="Добави в количката" disabled/>
+	  						</form>
+						</div>
+
+					{% else %}
+
+						<!-- <img class="myImg" src="{{ url_for('static', filename='images/Keychains/' + products[current_item.current_item].product_image) }}" alt="{{ products[current_item.current_item].product_name }}"> -->
+
+						<div class="my-card">
+							<img class="myImg" src="{{ url_for('static', filename='images/Keychains/' + products[current_item.current_item].product_image) }}" alt="{{ products[current_item.current_item].product_name }}">
+							<div class="name-price">
+			  					<p class="card-name">{{ products[current_item.current_item].product_name }}</p>
+			  					<p class="card-price">{{ products[current_item.current_item].product_price | int }}<span class="lv">лв.</span></p>
+			  				</div>
+		  					<form action="/home" method="POST">
+	  							<input type="hidden" name="product_name" id="" value="{{ products[current_item.current_item].product_name }}">
+	  							<input class="buy-button" type="submit" value="Добави в количката"/>
+	  						</form>
+						</div>
+
+					{% endif %}
+
+					{% set current_item.current_item = current_item.current_item + 1 %}
+
+					{% if break_item.break_item == 5 %}
+						{% set break_item.break_item = 0 %}
+						{% break %}
+					{% endif %}
+
+
+					{% set break_item.break_item = break_item.break_item | int + 1 %}
+
+				{% endfor %}
+  			</div>
+		</div>
+
+	{% endfor %}
+	<div style="text-align: center;" class="spacing">
+		<a style="text-decoration: none;" href="#sideline"><button class="to-top"><i class="fas fa-arrow-up"></i> Нагоре <i class="fas fa-arrow-up"></i></button></a>
+	</div>
+
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+		<span class="my-close">&times;</span>
+  		<img class="modal-content" id="img01">
+  		<div id="caption"></div>
+	</div>
+
+	<script type="text/javascript" src="{{ url_for('static', filename='javascript/modalscript.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='javascript/itemslide.js') }}"></script>
+
+{% endblock %}

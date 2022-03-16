@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Конакти</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}"/>
+<script src="https://www.google.com/recaptcha/api.js?hl=bg" async defer></script>
+{% endblock %}
+
+
+{% block body %}
+
+<div id="crossline">
+	<span class="text-crossline">Контакти</span>
+</div>
+
+<div class="standart">
+	<br>
+	<p>Можете да се свържете с нас чрез: </p>
+	<p>Email: leagueofnobles.store@gmail.com</p>
+	<p>Телефон: 089 447 4175</p>
+	<a href="https://www.facebook.com/leagueofnobles/" target="_blank" class="fb-btn">Facebook</a>
+	<br>
+	<br>
+	<h3>Ние ценим вашето мнение</h3>
+	<p>Споделете идеи за нови аксесоари, които искате да видите в сайта! За препоръки, мнения, оплаквания или всякакви въпроси, моля, попълнете формата по-долу.</p>
+</div>
+
+<div class="my-container">
+
+	{% with messages = get_flashed_messages(with_categories=true) %}
+		{% if messages %}
+			{% for category, message in messages %}
+				<div class="{{ category }}">
+					{{ message }}
+				</div>
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+
+  	<form action="" method="POST">
+
+		{{ form.hidden_tag() }}
+
+    		<div class="row">
+      			<div class="col-25">
+				{{ form.name.label(class="my-label") }}
+			</div>
+
+			{% if form.name.errors %}
+				<div class="col-75">
+					{{ form.name(class="my-input-error") }}
+					<div class="error-msg">
+						{% for error in form.name.errors %}
+							<span>{{ error }}</span>
+						{% endfor %}
+					</div>
+				</div>
+			{% else %}
+				<div class="col-75">
+					{{ form.name(class="my-input", id="name") }}
+				</div>
+			{% endif %}
+    		</div>
+    		<div class="row">
+      			<div class="col-25">
+				{{ form.email.label(class="my-label") }}
+			</div>
+
+			{% if form.email.errors %}
+				<div class="col-75">
+					{{ form.email(class="my-input-error") }}
+					<div class="error-msg">
+						{% for error in form.email.errors %}
+							<span>{{ error }}</span>
+						{% endfor %}
+					</div>
+				</div>
+			{% else %}
+				<div class="col-75">
+					{{ form.email(class="my-input", id="email") }}
+				</div>
+			{% endif %}
+    		</div>
+    		<div class="row">
+      			<div class="col-25">
+				{{ form.phonenumber.label(class="my-label") }}
+			</div>
+
+			{% if form.phonenumber.errors %}
+				<div class="col-75">
+					{{ form.phonenumber(class="my-input-error") }}
+					<div class="error-msg">
+						{% for error in form.phonenumber.errors %}
+							<span>{{ error }}</span>
+						{% endfor %}
+					</div>
+				</div>
+			{% else %}
+				<div class="col-75">
+					{{ form.phonenumber(class="my-input", id="phonenumber") }}
+				</div>
+			{% endif %}
+    		</div>
+    		<div class="row">
+      			<div class="col-25">
+				{{ form.message.label(class="my-label") }}
+			</div>
+
+			{% if form.message.errors %}
+				<div class="col-75">
+					{{ form.message(class="my-input-error") }}
+					<div class="error-msg">
+						<span>Това поле е задължително.</span>
+					</div>
+				</div>
+			{% else %}
+				<div class="col-75">
+					{{ form.message(class="my-input", id="msg") }}
+				</div>
+			{% endif %}
+    		</div>
+		<div class="row">
+			{% if form.recaptcha.errors %}
+				<div class="myCaptcha">
+					{{ form.recaptcha }}
+					<div class="error-msg">
+						<span>Това поле е задължително.</span>
+					</div>
+				</div>
+      			{% else %}
+				<div class="myCaptcha">
+					{{ form.recaptcha }}
+				</div>
+			{% endif %}
+		</div>
+		<div class="row">
+			{{ form.submit(class="submit-button") }}
+		</div>
+  	</form>
+</div>
+
+{% endblock %}

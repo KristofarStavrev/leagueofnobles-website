@@ -1,0 +1,156 @@
+button:focus {
+	outline: none;
+}
+
+input[type="submit"]:focus {
+	outline: none;
+}
+
+.my-container {
+	font-size: 1.2rem;
+	width: 90%;
+	max-width: 1100px;
+  	border-radius: 5px;
+  	background-color: #f2f2f2;
+  	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  	padding: 20px;
+	margin: auto;
+	margin-top: 3rem;
+}
+
+.container-nocolor {
+	font-size: 1.2rem;
+	width: 90%;
+	max-width: 1100px;
+  	padding: 20px;
+	margin: auto;
+	margin-top: 2rem;
+	padding: 0px;
+}
+
+.main-message {
+	text-align: center;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	font-size: 2.5rem;
+	font-weight: 500;
+}
+
+.bottom-buttons {
+	height: 70px;
+	width: 400px;
+	border-radius: 4px;
+	background-color: #968C9E;
+	border: none;
+	color: #FFFFFF;
+	text-align: center;
+	padding: 10px;
+	font-size: 1.5rem;
+	transition: all 0.5s;
+	cursor: pointer;
+}
+
+.center-button {
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.animation-span-left {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
+}
+
+.animation-span-left:after {
+	font-family: FontAwesome;
+  content: '\f104';
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	left: -20px;
+	transition: 0.5s;
+}
+
+.button-left:hover .animation-span-left {
+	padding-left: 10px;
+}
+
+.button-left:hover .animation-span-left:after {
+	opacity: 1;
+	left: 0;
+}
+
+@media screen and (max-width: 1000px){
+  	.main-message {
+  		font-size: 2rem;
+  		padding-top: 8px;
+		padding-bottom: 8px;
+  	}
+}
+
+@media screen and (max-width: 800px){
+  	.bottom-buttons {
+  		width: 350px;
+  		font-size: 1.3rem;
+  	}
+}
+
+@media screen and (max-width: 750px){
+  	.main-message {
+  		font-size: 1.7rem;
+  		padding-top: 5px;
+		padding-bottom: 5px;
+  	}
+}
+
+@media screen and (max-width: 500px){
+	.main-message {
+  		font-size: 1.4rem;
+  		padding-top: 5px;
+		padding-bottom: 5px;
+  	}
+
+  	.bottom-buttons {
+  		width: 300px;
+  		font-size: 1.2rem;
+  	}
+
+  	.my-container {
+  		padding: 10px;
+	}
+}
+
+@media screen and (max-width: 400px){
+	.main-message {
+  		font-size: 1.3rem;
+  		padding-top: 5px;
+		padding-bottom: 5px;
+  	}
+
+  	.bottom-buttons {
+  		width: 250px;
+  		font-size: 1.1rem;
+  	}
+
+  	.my-container {
+  		padding: 8px;
+	}
+}
+
+@media screen and (max-width: 320px){
+	.main-message {
+  		font-size: 1.2rem;
+  	}
+
+  	.bottom-buttons {
+  		width: 230px;
+  		font-size: 1rem;
+  	}
+
+  	.my-container {
+  		padding: 5px;
+	}
+}
