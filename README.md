@@ -9,7 +9,7 @@
 - A database created with SQLAlchemy containing information about the product assortment. Automatically updates when changes are made (ex. updates available product quantity when a sale is made)
 - Multipage catalogue containing all the products offerd for sale
 - Shopping cart with a fully operational checkout system
-- Functional "contact us" page and a newsletter feature
+- Functional "Contact us" page and a newsletter feature
 
 ## Project deployment
 
@@ -22,9 +22,9 @@
  "RECAPTCHA_PUBLIC_KEY" : "YOUR_PUBLIC_KEY",
  "RECAPTCHA_PRIVATE_KEY" : "YOUR_PRIVATE_KEY",
  "MAIL_SERVER" : "MAIL_SERVER_OF_CHOICE",
- "MAIL_PORT" MAIL_PORT_OF_CHOICE: ,
- "MAIL_USE_SSL" TRUE_FALSE: ,
- "MAIL_USE_TLS" TRUE_FALSE: ,
+ "MAIL_PORT" : MAIL_PORT_OF_CHOICE,
+ "MAIL_USE_SSL" : TRUE_FALSE,
+ "MAIL_USE_TLS" : TRUE_FALSE,
  "MAIL_USERNAME" : "YOUR_EMAIL_USERNAME",
  "MAIL_PASSWORD" : "YOUR_EMAIL_PASSWORD",
  "MAIL_DEFAULT_SENDER" : "YOUR_DEFAULT_SENDER",
@@ -61,16 +61,14 @@ server {
   - `pip install gunicorn`
   - In the project folder the following command is executed: `gunicorn -w 3 main:app` (gunicorn -w (2 x num_cores) + 1 main:app)
   - The number of cores on the machine can be checked with the command `nproc --all`
-
-After following the above steps the website should be now up and running
+  - After following the above steps the website should be now up and running
 
 6. (BONUS) Choosing a DNS provider of choines is necessary for obtaining a custom domain name
-
-**If a custom domain name is used the `server_name` in the nginx configuration file created in the above steps needs to be updated**
+  - **If a custom domain name is used the `server_name` in the nginx configuration file created in the above steps needs to be updated**
 
 7. (BONUS) For an SSL encryption it is recommended to use [Let's encrypt](https://letsencrypt.org/). Using the "Certbot" follow the steps for creating an SSL certificate
 
-## Known issue with using Gmail API for sending automatic emails
+## Known issue with using Gmail SMTP for sending automatic emails
 
 This issue can arise if the script has not accessed the Gmail API necessary for sending automatic emails for a prolonged period of time. It occurs in the following scenarios:
 - when signing up for the newsletter
