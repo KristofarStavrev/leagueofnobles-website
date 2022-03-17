@@ -1,9 +1,7 @@
 # Leagueofnobles Website
 
 ## Project Description
-Online shop (E-Commerce) project for League of Legends accessories.
-
-### Tech Stack
+**League of Nobles** is an [E-Commerce](https://en.wikipedia.org/wiki/E-commerce) website created from scratch as a side project using Python, Flask, HTML5, CSS3 and JavaScript.
 
 ### Hosting
 
