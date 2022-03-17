@@ -5,16 +5,16 @@
 
 ## Main features of the website
 
-- Completely responsive (works on all types of devices and sceen sizes)
+- Completely responsive (works on all types of devices and screen sizes)
 - A database created with SQLAlchemy containing information about the product assortment. Automatically updates when changes are made (ex. updates available product quantity when a sale is made)
-- Multipage catalogue containing all the products offerd for sale
+- Multipage catalogue containing all the products offered for sale
 - Shopping cart with a fully operational checkout system
 - Functional "Contact us" page and a newsletter feature
 
 ## Project deployment
 
-1. Creating a virtaul machine on a cloud service provider (in this particular case Azure). Alternative to that would be to use an own device for the purpose of being a server. **Note that ports 443 (HTTPS) and 80 (HTTP) have to be opened in order to allow incoming traffic**.
-2. Cloning the repository `git clone https://github.com/KrythonS/leagueofnobles-website.git` and crating a `config.json` file inside of it with the following structure.
+1. Creating a virtual machine on a cloud service provider (in this particular case Azure). Alternative to that would be to use an own device for the purpose of being a server. **Note that ports 443 (HTTPS) and 80 (HTTP) must be opened in order to allow incoming traffic**.
+2. Cloning the repository `git clone https://github.com/KrythonS/leagueofnobles-website.git` and creating a `config.json` file inside of it with the following structure.
 
 ```
 {
@@ -63,7 +63,7 @@ server {
   - The number of cores on the machine can be checked with the command `nproc --all`
   - After following the above steps the website should be now up and running
 
-6. (BONUS) Choosing a DNS provider of choines is necessary for obtaining a custom domain name
+6. (BONUS) Choosing a DNS provider is necessary for obtaining a custom domain name
   - **If a custom domain name is used the `server_name` in the nginx configuration file created in the above steps needs to be updated**
 
 7. (BONUS) For an SSL encryption it is recommended to use [Let's encrypt](https://letsencrypt.org/). Using the "Certbot" follow the steps for creating an SSL certificate
