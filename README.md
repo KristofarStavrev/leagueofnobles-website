@@ -72,7 +72,7 @@ server {
 
 This issue can arise if the script has not accessed the Gmail API necessary for sending automatic emails for a prolonged period of time. It occurs in the following scenarios:
 - when signing up for the newsletter
-- when sending a message using the 'contact us' form
+- when sending a message using the 'Contact us' form
 - when completing an order
 
 The error thrown in the log usually resembles something along the lines of `smtp authentication error 534`
