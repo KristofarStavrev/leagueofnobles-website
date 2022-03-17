@@ -1,16 +1,61 @@
 # Leagueofnobles Website
 
 ## Project Description
-[League of Nobles](https://www.leagueofnobles.com/) is an [E-Commerce](https://en.wikipedia.org/wiki/E-commerce) website created from scratch as a side project using Python, Flask, HTML5, CSS3 and JavaScript. The deployment is done using a virtual machine on Azure Cloud Services in order to increase stability, server uptime and security and at the same time decrease costs.
+[League of Nobles](https://www.leagueofnobles.com/) is an [E-Commerce](https://en.wikipedia.org/wiki/E-commerce) website created from scratch as a side project using Python, Flask, HTML5, CSS3 and JavaScript. The deployment in production mode is done using an Ubuntu virtual machine on Azure Cloud Services in order to increase stability, server uptime and security and at the same time decrease costs.
 
 ## Main features of the website
 
 - Completely responsive (works on all types of devices and sceen sizes)
-- A database created with SQLAlchemy containing information about the product assortment. Automatically updates when changes are made (ex. updates available quantity when a sale is made)
+- A database created with SQLAlchemy containing information about the product assortment. Automatically updates when changes are made (ex. updates available product quantity when a sale is made)
 - Multipage catalogue containing all the products offerd for sale
 - Shopping cart with a fully operational checkout system
-- Functional newsletter feature and a contact us page
+- Functional "contact us" page and a newsletter feature
 
-## Build and run project
+## Project deployment
+
+1. Creating a virtaul machine on a cloud service provider (in this particular case Azure). Alternative to that would be to use an own device for the purpose of being a server. **Note that ports 443 (HTTPS) and 80 (HTTP) have to be opened in order to allow incoming traffic**.
+2. Cloning the repository `git clone https://github.com/KrythonS/leagueofnobles-website.git` and crating a `config.json` file inside of it with the following structure.
+
+```
+{
+ "SECRET_KEY" : "YOUR_SECRET_KEY",
+ "RECAPTCHA_PUBLIC_KEY" : "YOUR_PUBLIC_KEY",
+ "RECAPTCHA_PRIVATE_KEY" : "YOUR_PRIVATE_KEY",
+ "MAIL_SERVER" : "MAIL_SERVER_OF_CHOICE",
+ "MAIL_PORT" MAIL_PORT_OF_CHOICE: ,
+ "MAIL_USE_SSL" TRUE_FALSE: ,
+ "MAIL_USE_TLS" TRUE_FALSE: ,
+ "MAIL_USERNAME" : "YOUR_EMAIL_USERNAME",
+ "MAIL_PASSWORD" : "YOUR_EMAIL_PASSWORD",
+ "MAIL_DEFAULT_SENDER" : "YOUR_DEFAULT_SENDER",
+ "SQLALCHEMY_DATABASE_URI" : "sqlite:///site.db"
+}
+```
+
+3. Creating a virtual environment and installing the dependencies found in `requirments.txt`
+4. Nginx setup
+  - `sudo apt install nginx`
+  - `sudo rm /etc/nginx/sites-enabled/default`
+  - `sudo nano /etc/nginx/sites-enabled/leagueofnobles`
+  - Place the following code in the newly created file
+
+```
+server {
+    listen 80;
+    server_name PUBLIC_IP_OR_DOMAIN_NAME;
+
+    location /static {
+        alias /home/USER/PROJECT_DIR/static;
+    }
+
+    location / {
+        proxy_pass http://localhost:8000;
+        include /etc/nginx/proxy_params;
+        proxy_redirect off;
+    }
+}
+```
+  - `sudo systemctl restart nginx`
+
 
 ## Visual samples of the website
