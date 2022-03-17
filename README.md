@@ -33,7 +33,7 @@
 ```
 
 3. Creating a virtual environment and installing the dependencies found in `requirments.txt`
-4. Nginx setup
+4. Setting up Nginx
   - `sudo apt install nginx`
   - `sudo rm /etc/nginx/sites-enabled/default`
   - `sudo nano /etc/nginx/sites-enabled/leagueofnobles`
@@ -57,5 +57,17 @@ server {
 ```
   - `sudo systemctl restart nginx`
 
+5. Setting up Gunicorn
+  - `pip install gunicorn`
+  - In the project folder the following command is executed: `gunicorn -w 3 main:app` (gunicorn -w (2 x num_cores) + 1 main:app)
+  - The number of cores on the machine can be checked with the command `nproc --all`
+
+After following the above steps the website should be now up and running
+
+6. (BONUS) Choosing a DNS provider of choines is necessary for obtaining a custom domain name
+
+**If a custom domain name is used the `server_name` in the nginx configuration file created in the above steps needs to be updated**
+
+7. (BONUS) For an SSL encryption it is recommended to use [Let's encrypt](https://letsencrypt.org/). Using the "Certbot" follow the steps for creating an SSL certificate
 
 ## Visual samples of the website
