@@ -82,3 +82,43 @@ Fix for the error can be found on the following [link](https://support.google.co
 Usually, the issue is fixed by allowing less secure apps to access your account and/or following the steps for the DisplayUnlockCaptcha section.
 
 ## Visual samples of the website
+
+### Image 1: Home Page
+
+![alt text](https://i.ibb.co/6vJVNk2/image1.png)
+
+### Image 2: Assortment Catalogue First Row
+
+![alt text](https://i.ibb.co/kSTJL8d/image2.png)
+
+### Image 3: Assortment Catalogue Second Row and Footer
+
+![alt text](https://i.ibb.co/12GJXnr/image3.png)
+
+### Image 4: FAQ Page
+
+![alt text](https://i.ibb.co/ZmWZ3kD/image4.png)
+
+### Image 5: Shopping Cart 1
+
+![alt text](https://i.ibb.co/nCH0b8m/image5.png)
+
+### Image 6: Shopping Cart 2
+
+![alt text](https://i.ibb.co/YZZqVd0/image6.png)
+
+### Image 7: Checkout 1
+
+![alt text](https://i.ibb.co/vspyh90/image7.png)
+
+### Image 8: Checkout 2
+
+![alt text](https://i.ibb.co/pJzyzqL/image8.png)
+
+### Image 9: Empty Shopping Cart
+
+![alt text](https://i.ibb.co/ckcCDgT/image9.png)
+
+### Image 10: Contact Us Page
+
+![alt text](https://i.ibb.co/64tCQQT/image10.png)
