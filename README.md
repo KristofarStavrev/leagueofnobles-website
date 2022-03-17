@@ -70,4 +70,17 @@ After following the above steps the website should be now up and running
 
 7. (BONUS) For an SSL encryption it is recommended to use [Let's encrypt](https://letsencrypt.org/). Using the "Certbot" follow the steps for creating an SSL certificate
 
+## Known issue with using Gmail API for sending automatic emails
+
+This issue can arise if the script has not accessed the Gmail API necessary for sending automatic emails for a prolonged period of time. It occurs in the following scenarios:
+- when signing up for the newsletter
+- when sending a message using the 'contact us' form
+- when completing an order
+
+The error thrown in the log usually resembles something along the lines of `smtp authentication error 534`
+
+Fix for the error can be found on the following [link](https://support.google.com/mail/answer/7126229?hl=en&authuser=1#zippy=%2Cstep-check-that-imap-is-turned-on%2Cstep-change-smtp-other-settings-in-your-email-client%2Ci-cant-sign-in-to-my-email-client)
+
+Usually, the issue is fixed by allowing less secure apps to access your account and/or following the steps for the DisplayUnlockCaptcha section.
+
 ## Visual samples of the website
