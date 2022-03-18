@@ -5,11 +5,11 @@
 
 ## Main features of the website
 
-- Completely responsive (works on all types of devices and screen sizes)
-- A database created with SQLAlchemy containing information about the product assortment. Automatically updates when changes are made (ex. updates available product quantity when a sale is made)
-- Multipage catalogue containing all the products offered for sale
-- Shopping cart with a fully operational checkout system
-- Functional "Contact us" page and a newsletter feature
+- Completely responsive (works on all types of devices and screen sizes).
+- A database created with SQLAlchemy containing information about the product assortment. Automatically updates when changes are made (ex. updates available product quantity when a sale is made).
+- Multipage catalogue containing all the products offered for sale.
+- Shopping cart with a fully operational checkout system.
+- Functional "Contact us" page and a newsletter feature.
 
 ## Project deployment
 
@@ -32,12 +32,12 @@
 }
 ```
 
-3. Creating a virtual environment and installing the dependencies found in `requirments.txt`
-4. Setting up Nginx
+3. Creating a virtual environment and installing the dependencies found in `requirments.txt`.
+4. Setting up Nginx:
   - `sudo apt install nginx`
   - `sudo rm /etc/nginx/sites-enabled/default`
   - `sudo nano /etc/nginx/sites-enabled/leagueofnobles`
-  - Place the following code in the newly created file
+  - Place the following code in the newly created file:
 
 ```
 server {
@@ -57,27 +57,27 @@ server {
 ```
   - `sudo systemctl restart nginx`
 
-5. Setting up Gunicorn
+5. Setting up Gunicorn:
   - `pip install gunicorn`
-  - In the project folder the following command is executed: `gunicorn -w 3 main:app` (gunicorn -w (2 x num_cores) + 1 main:app)
-  - The number of cores on the machine can be checked with the command `nproc --all`
-  - After following the above steps the website should be now up and running
+  - In the project folder the following command is executed: `gunicorn -w 3 main:app` (gunicorn -w (2 x num_cores) + 1 main:app).
+  - The number of cores on the machine can be checked with the command `nproc --all`.
+  - After following the above steps the website should be now up and running.
 
-6. (BONUS) Choosing a DNS provider is necessary for obtaining a custom domain name
-  - **If a custom domain name is used the `server_name` in the nginx configuration file created in the above steps needs to be updated**
+6. (BONUS) Choosing a DNS provider is necessary for obtaining a custom domain name.
+  - **If a custom domain name is used the `server_name` in the nginx configuration file created in the above steps needs to be updated.**
 
-7. (BONUS) For an SSL encryption it is recommended to use [Let's encrypt](https://letsencrypt.org/). Using the "Certbot" follow the steps for creating an SSL certificate
+7. (BONUS) For an SSL encryption it is recommended to use [Let's encrypt](https://letsencrypt.org/). Using the "Certbot" follow the steps for creating an SSL certificate.
 
 ## Known issue with using Gmail SMTP for sending automatic emails
 
 This issue can arise if the script has not accessed the Gmail API necessary for sending automatic emails for a prolonged period of time. It occurs in the following scenarios:
-- when signing up for the newsletter
-- when sending a message using the 'Contact us' form
-- when completing an order
+- When signing up for the newsletter.
+- When sending a message using the 'Contact us' form.
+- When completing an order.
 
-The error thrown in the log usually resembles something along the lines of `smtp authentication error 534`
+The error thrown in the log usually resembles something along the lines of `smtp authentication error 534`.
 
-Fix for the error can be found on the following [link](https://support.google.com/mail/answer/7126229?hl=en&authuser=1#zippy=%2Cstep-check-that-imap-is-turned-on%2Cstep-change-smtp-other-settings-in-your-email-client%2Ci-cant-sign-in-to-my-email-client)
+Fix for the error can be found on the following [link](https://support.google.com/mail/answer/7126229?hl=en&authuser=1#zippy=%2Cstep-check-that-imap-is-turned-on%2Cstep-change-smtp-other-settings-in-your-email-client%2Ci-cant-sign-in-to-my-email-client).
 
 Usually, the issue is fixed by allowing less secure apps to access your account and/or following the steps for the DisplayUnlockCaptcha section.
 
