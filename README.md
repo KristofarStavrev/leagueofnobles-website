@@ -1,6 +1,6 @@
 # Leagueofnobles Website
 
-## Project Description
+## Project description
 [League of Nobles](https://www.leagueofnobles.com/) is an [E-Commerce](https://en.wikipedia.org/wiki/E-commerce) website created from scratch as a side project using Python, Flask, HTML5, CSS3 and JavaScript. The deployment in production mode is done using an Ubuntu virtual machine on Azure Cloud Services in order to increase stability, server uptime and security and at the same time decrease costs.
 
 ## Main features of the website
