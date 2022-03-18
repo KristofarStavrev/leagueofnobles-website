@@ -81,7 +81,7 @@ Fix for the error can be found on the following [link](https://support.google.co
 
 Usually, the issue is fixed by allowing less secure apps to access your account and/or following the steps for the DisplayUnlockCaptcha section.
 
-## Visual samples of the website
+## Visual examples of the website
 
 ### Image 1: Home Page
 
