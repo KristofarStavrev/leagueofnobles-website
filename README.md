@@ -13,8 +13,8 @@
 
 ## Project deployment
 
-1. Creating a virtual machine on a cloud service provider (in this particular case Azure). Alternative to that would be to use an own device for the purpose of being a server. **Note that ports 443 (HTTPS) and 80 (HTTP) must be opened in order to allow incoming traffic**.
-2. Cloning the repository `git clone https://github.com/KrythonS/leagueofnobles-website.git` and creating a `config.json` file inside of it with the following structure.
+1. Create a virtual machine on a cloud service provider (in this particular case Azure). Alternative to that would be to use an own device for the purpose of being a server. **Note that ports 443 (HTTPS) and 80 (HTTP) must be opened in order to allow incoming traffic**.
+2. Clone the repository `git clone https://github.com/KrythonS/leagueofnobles-website.git` and create a `config.json` file inside of it with the following structure.
 
 ```
 {
@@ -32,7 +32,7 @@
 }
 ```
 
-3. Creating a virtual environment and installing the dependencies found in `requirments.txt`.
+3. Create a virtual environment and install the dependencies found in `requirments.txt`.
 4. Setting up Nginx:
   - `sudo apt install nginx`
   - `sudo rm /etc/nginx/sites-enabled/default`
@@ -59,7 +59,7 @@ server {
 
 5. Setting up Gunicorn:
   - `pip install gunicorn`
-  - In the project folder the following command is executed: `gunicorn -w 3 main:app` (gunicorn -w (2 x num_cores) + 1 main:app).
+  - Execute the following command in the project folder: `gunicorn -w 3 main:app` (gunicorn -w (2 x num_cores) + 1 main:app).
   - The number of cores on the machine can be checked with the command `nproc --all`.
   - After following the above steps the website should be now up and running.
 
@@ -79,7 +79,7 @@ The error thrown in the log usually resembles something along the lines of `smtp
 
 Fix for the error can be found on the following [link](https://support.google.com/mail/answer/7126229?hl=en&authuser=1#zippy=%2Cstep-check-that-imap-is-turned-on%2Cstep-change-smtp-other-settings-in-your-email-client%2Ci-cant-sign-in-to-my-email-client).
 
-Usually, the issue is fixed by allowing less secure apps to access your account and/or following the steps for the DisplayUnlockCaptcha section.
+Usually, the issue is resolved by allowing less secure apps to access your account and/or following the steps for the DisplayUnlockCaptcha section.
 
 ## Visual examples of the website
 
