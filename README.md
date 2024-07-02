@@ -14,7 +14,7 @@
 ## Project deployment
 
 1. Create a virtual machine on a cloud service provider (in this particular case Azure). Alternative to that would be to use an own device for the purpose of being a server. **Note that ports 443 (HTTPS) and 80 (HTTP) must be opened in order to allow incoming traffic**.
-2. Clone the repository `git clone https://github.com/KrythonS/leagueofnobles-website.git` and create a `config.json` file inside of it with the following structure.
+2. Clone the repository `git clone https://github.com/KristofarStavrev/leagueofnobles-website.git` and create a `config.json` file inside of it with the following structure.
 
 ```
 {
